@@ -5,7 +5,6 @@ __author__ = 'Jack Pebble'
 
 # https://www.101computing.net/pong-tutorial-using-pygame-getting-started/
 
-
 import pygame
 from sprite import Paddle
 from ball import Ball
@@ -71,6 +70,9 @@ def main():
             ball.velocity[1] = -ball.velocity[1]
         if ball.rect.y <= 0:
             ball.velocity[1] = -ball.velocity[1]
+
+        if pygame.sprite.collide_mask(ball, a) or pygame.sprite.collide_mask(ball, b):
+            ball.bounce()
 
         screen.fill(black)
         pygame.draw.line(screen, white, [349,0], [349, 500], 5)
