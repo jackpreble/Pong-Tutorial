@@ -8,6 +8,7 @@ __author__ = 'Jack Pebble'
 import pygame
 from sprite import Paddle
 from ball import Ball
+from random import randint
 
 pygame.init()
 
@@ -41,8 +42,15 @@ all_sprites_list = pygame.sprite.Group()
 
 all_sprites_list.add(a, b, ball)
 
+#def opponent():
+
+
+
 def main():
     global carryOn, black, white, clock, size, screen, all_sprites_list, a, b, ball
+
+    scoreA = 0
+    scoreB = 0
 
     while carryOn:
         for event in pygame.event.get():
@@ -54,18 +62,21 @@ def main():
             a.moveUp(10)
         if keys[pygame.K_s]:
             a.moveDown(10)
-        if keys[pygame.K_UP]:
+        '''if keys[pygame.K_UP]:
             b.moveUp(10)
         if keys[pygame.K_DOWN]:
-            b.moveDown(10)
+            b.moveDown(10)'''
 
+        off_screen = False
 
         all_sprites_list.update()
 
         if ball.rect.x >= 690:
-            ball.velocity[0] = -ball.velocity[0]
-        if ball.rect.x <=0:
-            ball.velocity[0] = -ball.velocity[0]
+            scoreA += 1
+            off_screen = True
+        if ball.rect.x <= 0:
+            scoreB += 1
+            off_screen = True
         if ball.rect.y >= 490:
             ball.velocity[1] = -ball.velocity[1]
         if ball.rect.y <= 0:
@@ -74,9 +85,21 @@ def main():
         if pygame.sprite.collide_mask(ball, a) or pygame.sprite.collide_mask(ball, b):
             ball.bounce()
 
+        if off_screen:
+            ball.velocity[0] = -ball.velocity[0]
+            ball.rect.x = 345
+            ball.rect.y = 195
+
         screen.fill(black)
         pygame.draw.line(screen, white, [349,0], [349, 500], 5)
         all_sprites_list.draw(screen)
+
+        font = pygame.font.Font(None, 74)
+        text = font.render(str(scoreA), 1, white)
+        screen.blit(text, (250, 10))
+        text = font.render(str(scoreB), 1, white)
+        screen.blit(text, (420, 10))
+
         pygame.display.flip()
         clock.tick(60)
 
