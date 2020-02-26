@@ -62,10 +62,10 @@ def main():
             a.moveUp(10)
         if keys[pygame.K_s]:
             a.moveDown(10)
-        '''if keys[pygame.K_UP]:
+        if keys[pygame.K_UP]:
             b.moveUp(10)
         if keys[pygame.K_DOWN]:
-            b.moveDown(10)'''
+            b.moveDown(10)
 
         off_screen = False
 
