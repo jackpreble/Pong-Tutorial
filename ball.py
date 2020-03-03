@@ -27,3 +27,6 @@ class Ball(pygame.sprite.Sprite):
     def bounce(self):
         self.velocity[0] = -self.velocity[0]
         self.velocity[1] = randint(-8,8)
+
+    def is_collided_with(self, sprite): # https://stackoverflow.com/questions/29640685/how-do-i-detect-collision-in-pygame
+        return self.rect.colliderect(sprite.rect)

@@ -42,8 +42,18 @@ all_sprites_list = pygame.sprite.Group()
 
 all_sprites_list.add(a, b, ball)
 
-#def opponent():
+f = open("data.csv")
 
+def opponent():
+    global b, ball
+
+    loss = False
+
+    '''if ball.rect.y > 700:
+        loss = True'''
+
+    if ball.is_collided_with(a): # https://stackoverflow.com/questions/29640685/how-do-i-detect-collision-in-pygame
+        #f.append(str(ball.rect.y))
 
 
 def main():
@@ -56,6 +66,8 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT: # https://stackoverflow.com/questions/26822175/pygame-if-event-type-pygame-keydown-typeerror-int-object-is-not-callable/26822211
                 carryOn = False
+
+        opponent()
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_w]:
@@ -101,7 +113,7 @@ def main():
         screen.blit(text, (420, 10))
 
         pygame.display.flip()
-        clock.tick(60)
+        clock.tick(300)
 
 
 if __name__ == "__main__":
