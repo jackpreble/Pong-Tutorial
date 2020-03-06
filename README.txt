@@ -1,4 +1,10 @@
 The base game of this file is based on this tutorial: https://www.101computing.net/pong-tutorial-using-pygame-getting-started/
 
-Right now, it's just the base game (without a scoreboard), but I will be implementing an AI that will replace
-paddle B (the one on the right).
+Only step in setting this up is to run the files in PyCharm Pro.
+
+The player's paddle is the paddle on the left side of the screen (Paddle A). The player uses W to move the paddle up
+and S to move the paddle down.
+
+The other paddle is the AI's paddle. It won't lose.
+
+Also ignore "data.csv" and "racecar.png"... I just can't get rid of them.
