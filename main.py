@@ -45,8 +45,7 @@ all_sprites_list.add(a, b, ball)
 f = open("data.csv")
 
 
-
-'''def opponent():
+'''def opponent(): !!!! ( This was going to be the function that does what the code on Line 123 does)
     global b, ball
 
     x1 = 0
@@ -107,13 +106,14 @@ def main():
             if event.type == pygame.QUIT: # https://stackoverflow.com/questions/26822175/pygame-if-event-type-pygame-keydown-typeerror-int-object-is-not-callable/26822211
                 carryOn = False
 
-        #opponent()
-
+        # move the left paddle
         keys = pygame.key.get_pressed()
         if keys[pygame.K_w]:
             a.moveUp(10)
         if keys[pygame.K_s]:
             a.moveDown(10)
+
+        # replaced by AI
         '''if keys[pygame.K_UP]:
             b.moveUp(10)
         if keys[pygame.K_DOWN]:

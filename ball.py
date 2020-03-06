@@ -1,4 +1,4 @@
-# class for the ball
+# class for the ball sprite
 # https://www.101computing.net/pong-tutorial-using-pygame-adding-the-paddles/
 import pygame
 from random import randint
