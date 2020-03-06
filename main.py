@@ -119,6 +119,7 @@ def main():
         if keys[pygame.K_DOWN]:
             b.moveDown(10)'''
 
+        # yes, this is the AI
         b.rect.y = ball.rect.y # Scurria gave me this idea
 
         off_screen = False
