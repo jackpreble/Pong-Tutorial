@@ -44,16 +44,56 @@ all_sprites_list.add(a, b, ball)
 
 f = open("data.csv")
 
-def opponent():
+
+
+'''def opponent():
     global b, ball
+
+    x1 = 0
+    y1 = 0
+    x2 = 0
+    y2 = 0
+
+    alist = []
+    blist = []
 
     loss = False
 
-    '''if ball.rect.y > 700:
-        loss = True'''
+    if ball.rect.x > 700:
+        loss = True
 
     if ball.is_collided_with(a): # https://stackoverflow.com/questions/29640685/how-do-i-detect-collision-in-pygame
-        #f.append(str(ball.rect.y))
+        x1 = int(ball.rect.x)
+        y1 = int(ball.rect.y)
+
+        alist.clear()
+
+        if x1 > 0:
+            alist.append(x1)
+
+        if y1 > 0:
+            alist.append(y1)
+
+    if ball.rect.x == 35:
+        x2 = int(ball.rect.x)
+        y2 = int(ball.rect.y)
+
+        blist.clear()
+
+        if x1 > 0:
+            blist.append(x1)
+
+        if y1 > 0:
+            blist.append(y1)
+
+    print(x1, x2, y1, y2)
+    print(a, b)
+
+            # creates equation of the line
+
+           # m = (t - ball.rect.y)/(20 - ball.rect.x)
+
+   # print(m)'''
 
 
 def main():
@@ -67,17 +107,19 @@ def main():
             if event.type == pygame.QUIT: # https://stackoverflow.com/questions/26822175/pygame-if-event-type-pygame-keydown-typeerror-int-object-is-not-callable/26822211
                 carryOn = False
 
-        opponent()
+        #opponent()
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_w]:
             a.moveUp(10)
         if keys[pygame.K_s]:
             a.moveDown(10)
-        if keys[pygame.K_UP]:
+        '''if keys[pygame.K_UP]:
             b.moveUp(10)
         if keys[pygame.K_DOWN]:
-            b.moveDown(10)
+            b.moveDown(10)'''
+
+        b.rect.y = ball.rect.y # Scurria gave me this idea
 
         off_screen = False
 
@@ -113,7 +155,7 @@ def main():
         screen.blit(text, (420, 10))
 
         pygame.display.flip()
-        clock.tick(300)
+        clock.tick(120)
 
 
 if __name__ == "__main__":
